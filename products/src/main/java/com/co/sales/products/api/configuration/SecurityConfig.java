@@ -17,7 +17,7 @@ import com.co.sales.products.api.security.AuthenticationFilter;
 @EnableWebSecurity
 @EnableRetry
 public class SecurityConfig {
-
+  
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       http.csrf(AbstractHttpConfigurer::disable)
@@ -27,6 +27,7 @@ public class SecurityConfig {
           .sessionManagement(httpSecuritySessionManagementConfigurer -> 
           httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
           .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+      
         return http.build();
     }
 

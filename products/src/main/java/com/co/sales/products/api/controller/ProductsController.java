@@ -30,8 +30,8 @@ public class ProductsController {
 
 	@GetMapping
 	@ResponseBody
-	public List<Products> getAllProducts(@RequestParam(required = true) int page,
-			@RequestParam(required = true) int pageSize) {
+	public List<Products> getAllProducts(@RequestParam(required = true) int page,@RequestParam(required = true) int pageSize) {
+		System.out.println("NNNNNNNNNNNNN");
 		return productService.getAllProducts(page, pageSize);
 	}
 
