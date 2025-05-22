@@ -75,6 +75,7 @@ public class InventoryServiceImpl implements InventoryService {
 		InventoryResponse response = new InventoryResponse();
 		try {
 			Inventory updatedInventory = inventoryRepository.findById(inventory.getProducto_id()).orElseThrow();
+			updatedInventory.setCantidad(inventory.getCantidad());
 			response.setInventory(updatedInventory);
 			response.setResponseMessage(InventoryConstants.OK);
 			System.out.println(InventoryConstants.INVENTORY_UPDATED + inventory.getProducto_id());
